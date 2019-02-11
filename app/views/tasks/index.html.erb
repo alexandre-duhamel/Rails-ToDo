@@ -1,15 +1,22 @@
 <h1>liste des taches</h1>
 
-<% @tasks.each do |task| %>
-  <h2><%= task.nom %></h2>
-  <p><%= task.date %></p>
-  <p>
-<a href="<%= task_path(task.id)%>" class="btn btn-primary">detail</a>
-<a href="<%= edit_task_path(task.id)%>" class="btn btn-primary">editer</a>
-<a href="<%= task_path(task.id) %>" class="btn btn-danger" data-confirm="êtes vous sûr?" data-method="DELETE">Supprimer</a>
-  </p>
-<% end %>
-
-<p>
-  <a href="<%= new_task_path %>" class="btn btn-success" >ajouter une tache</a>
-</p>
+<table>
+  <th scope="col">Nom</th>
+  <th scope="col">date</th>
+  <th scope="col">editer</th>
+  <th scope="col">supprimer</th>
+  <% @tasks.each do |task| %>
+    <tr>
+      <td><%= task.nom %></td>
+      <td><%= task.date %></td>
+      <td><a href="<%= edit_task_path(task.id)%>" class="btn btn-primary"><%= image_tag "edit-512.png", size:20 %></a></td>
+      <td><a href="<%= task_path(task.id) %>" class="btn btn-danger" data-confirm="êtes vous sûr?" data-method="DELETE"><%= image_tag "trash-512.png", size:20%></a></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td> <a href="<%= new_task_path %>" class="btn btn-success" >ajouter une tache</a></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>

@@ -1,1 +1,40 @@
+<%= stylesheet_link_tag "home.css" %>
+
+
 <h1>Bienvenue</h1>
+
+<p>taches de la journée <%= Date.today %></p>
+<table>
+  <th scope="col">Nom</th>
+  <th scope="col">date</th>
+  <% Task.today.each do |task| %>
+    <tr>
+      <td><%= task.nom %></td>
+      <td><%= task.date %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p>taches de demain <%= Date.tomorrow %></p>
+<table>
+  <th scope="col">Nom</th>
+  <th scope="col">date</th>
+  <% Task.tomorrow.each do |task| %>
+    <tr>
+      <td><%= task.nom %></td>
+      <td><%= task.date %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p>taches en retard <%= Date.today %></p>
+<table>
+  <th scope="col">Nom</th>
+  <th scope="col">date</th>
+  <% Task.late.each do |task| %>
+    <tr>
+      <td><%= task.nom %></td>
+      <td><%= task.date %></td>
+    </tr>
+  <% end %>
+</table>

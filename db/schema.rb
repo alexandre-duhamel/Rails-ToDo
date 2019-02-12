@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_31_001521) do
+ActiveRecord::Schema.define(version: 2019_02_11_220323) do
 
   create_table "lists", force: :cascade do |t|
     t.string "nom"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_01_31_001521) do
   create_table "tasks", force: :cascade do |t|
     t.string "nom"
     t.string "date"
+    t.boolean "complete"
   end
 
 end

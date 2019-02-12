@@ -15,4 +15,8 @@ class Task < ApplicationRecord
       Task.where("date < ?", Date.today)
   end
 
+  def self.validate
+      Task.set("complete", true)
+  end
+
 end

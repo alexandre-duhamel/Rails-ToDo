@@ -1,12 +1,14 @@
 <h1>liste des taches</h1>
 
 <table>
+  <th scope="col">Terminée</th>
   <th scope="col">Nom</th>
   <th scope="col">date</th>
   <th scope="col">editer</th>
   <th scope="col">supprimer</th>
   <% @tasks.each do |task| %>
     <tr>
+      <td><%= check_box_tag :validate %></td>
       <td><%= task.nom %></td>
       <td><%= task.date %></td>
       <td><a href="<%= edit_task_path(task.id)%>" class="btn btn-primary"><%= image_tag "edit-512.png", size:20 %></a></td>
@@ -14,7 +16,8 @@
     </tr>
   <% end %>
   <tr>
-    <td> <a href="<%= new_task_path %>" class="btn btn-success" >ajouter une tache</a></td>
+    <td><a href="<%= @tasks %>" class="btn btn-danger" >clear</a></td>
+    <td><a href="<%= new_task_path %>" class="btn btn-success" >ajouter une tache</a></td>
     <td></td>
     <td></td>
     <td></td>

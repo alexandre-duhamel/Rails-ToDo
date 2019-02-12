@@ -10,7 +10,7 @@
     <tr>
       <td><%= check_box_tag :validate %></td>
       <td><%= task.nom %></td>
-      <td><%= task.date %></td>
+      <td><%= I18n.l task.date.to_date, format: :long %></td>
       <td><a href="<%= edit_task_path(task.id)%>" class="btn btn-primary"><%= image_tag "edit-512.png", size:20 %></a></td>
       <td><a href="<%= task_path(task.id) %>" class="btn btn-danger" data-confirm="êtes vous sûr?" data-method="DELETE"><%= image_tag "trash-512.png", size:20%></a></td>
     </tr>

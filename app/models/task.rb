@@ -1,7 +1,7 @@
 class Task < ApplicationRecord
 
-  validates :nom, presence: true
-  validates_format_of :date, :with => /\d{4}\-\d{2}\-\d{2}/, :message => " must be in the following format: yyyy/mm/dd"
+  validates :nom, :date, presence: true
+  validates_format_of :date, :with => /\d{4}\-\d{2}\-\d{2}/, allow_blank: true, message: :myformat
 
   def self.today
       Task.where("date = '#{Date.today}'")
